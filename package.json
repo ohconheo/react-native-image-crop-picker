@@ -1,5 +1,5 @@
 {
-  "name": "react-native-image-crop-picker",
+  "name": "react-native-image-crop-picker-custom",
   "version": "0.38.1",
   "description": "Select single or multiple images, with cropping option",
   "main": "index.js",
@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ivpusic/react-native-image-crop-picker.git"
+    "url": "git+https://github.com/ohconheo/react-native-image-crop-picker-custom.git"
   },
   "keywords": [
     "react",
