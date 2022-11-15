@@ -258,7 +258,7 @@ declare module "react-native-image-crop-picker" {
         /**
          * Choose button text.
          *
-         * @default 'Choose'
+         * @default 'hehe'
          */
         cropperChooseText?: string;
 

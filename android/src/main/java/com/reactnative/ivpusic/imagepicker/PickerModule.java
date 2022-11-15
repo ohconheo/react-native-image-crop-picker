@@ -19,8 +19,12 @@ import android.util.Base64;
 import android.util.Log;
 import android.webkit.MimeTypeMap;
 
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.DrawableRes;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.content.ContextCompat;
 
 import com.facebook.react.bridge.ActivityEventListener;
 import com.facebook.react.bridge.Callback;
@@ -90,7 +94,8 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
     private boolean disableCropperColorSetters = false;
     private boolean useFrontCamera = false;
     private ReadableMap options;
-
+    private int mToolbarCancelDrawable;
+    @DrawableRes
     private String cropperActiveWidgetColor = null;
     private String cropperStatusBarColor = null;
     private String cropperToolbarColor = null;
@@ -126,6 +131,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
     private void setConfiguration(final ReadableMap options) {
         mediaType = options.hasKey("mediaType") ? options.getString("mediaType") : "any";
+       
         multiple = options.hasKey("multiple") && options.getBoolean("multiple");
         includeBase64 = options.hasKey("includeBase64") && options.getBoolean("includeBase64");
         includeExif = options.hasKey("includeExif") && options.getBoolean("includeExif");
@@ -727,7 +733,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         }
     }
 
-    private void startCropping(final Activity activity, final Uri uri) {
+    private void startCropping(final Activity activity, final Uri uri ) {
         UCrop.Options options = new UCrop.Options();
         options.setCompressionFormat(Bitmap.CompressFormat.JPEG);
         options.setCompressionQuality(100);
@@ -735,7 +741,10 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
         options.setFreeStyleCropEnabled(freeStyleCropEnabled);
         options.setShowCropGrid(showCropGuidelines);
         options.setShowCropFrame(showCropFrame);
-        options.setHideBottomControls(hideBottomControls);
+  
+        options.setHideBottomControls(true);
+        options.setToolbarCancelDrawable(R.drawable.abc_ic_ab_back_material);
+        
 
         if (cropperToolbarTitle != null) {
             options.setToolbarTitle(cropperToolbarTitle);
@@ -884,6 +893,7 @@ class PickerModule extends ReactContextBaseJavaModule implements ActivityEventLi
 
     @Override
     public void onNewIntent(Intent intent) {
+        
     }
 
     private boolean isCameraAvailable(Activity activity) {
