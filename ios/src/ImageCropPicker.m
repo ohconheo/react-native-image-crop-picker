@@ -893,7 +893,7 @@ RCT_EXPORT_METHOD(openCropper:(NSDictionary *)options
         cropVC.toolbarPosition = TOCropViewControllerToolbarPositionTop;
         cropVC.cancelButtonTitle = [self.options objectForKey:@"cropperCancelText"];
         cropVC.cancelButtonColor = [UIColor colorWithRed:255 green:255 blue:255 alpha:1];
-        cropVC.doneButtonColor = [UIColor colorWithRed:0 green:0.804 blue:0.708 alpha:1];
+        cropVC.doneButtonColor = [UIColor colorWithRed: 0.82 green: 0.12 blue: 0.24 alpha: 1.00];
          
         cropVC.rotateButtonsHidden = [[self.options objectForKey:@"cropperRotateButtonsHidden"] boolValue];
         cropVC.resetButtonHidden = true ;
