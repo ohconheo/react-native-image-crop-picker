@@ -13,7 +13,7 @@ Pod::Spec.new do |s|
   s.platform     = :ios, "8.0"
   s.dependency 'React-Core'
   s.dependency 'React-RCTImage'
-  s.dependency 'TOCropViewController',  :podspec => "https://github.com/ohconheo/TOCropViewControllerCustom/blob/main/TOCropViewController.podspec"
+  s.dependency 'TOCropViewController'
 
   s.subspec 'QBImagePickerController' do |qb|
     qb.name             = "QBImagePickerController"
